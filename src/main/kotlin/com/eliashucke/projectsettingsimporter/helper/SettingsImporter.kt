@@ -7,7 +7,6 @@ import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.JDOMUtil
 import com.intellij.openapi.vfs.VfsUtil
-import com.intellij.util.castSafelyTo
 import org.jdom.Attribute
 import org.jdom.Element
 import kotlin.io.path.Path
@@ -71,7 +70,8 @@ class SettingsImporter
                     return
                 }
 
-                elementGroup.castSafelyTo<Element>()?.getAttribute("name")?.value?.let {
+                val elements = elementGroup as Element?
+                elements?.getAttribute("name")?.value?.let {
                     if (shouldReformat && it == this.REFORMAT_CODE_KEY)
                     {
                         shouldReformat = false
