@@ -35,7 +35,8 @@ When importing/creating/opening a project that hasn't been opened yet with this 
 All of the code is dual-licensed under either:
 * MIT License ([LICENSE-MIT](LICENSE-MIT) or [http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT))
 * Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0))
-Reasons using a dual-license can be found [here](https://github.com/bevyengine/bevy/issues/2373)
+  
+Reasons for using a dual-license can be found [here](https://github.com/bevyengine/bevy/issues/2373)
 
 ## Contributing
 
