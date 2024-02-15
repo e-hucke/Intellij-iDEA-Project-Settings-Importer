@@ -1,0 +1,42 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.eliashucke.projectsettingsimporter</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Project Settings Importer</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="elias.hucke@marcapo.com">Elias Hucke</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+       Plugin for importing .idea files into projects because some Plugin/IDE settings are project specific even though you might want them in every project.
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable parentId="tools"
+                                 id="com.eliashucke.projectsettingsimporter.settings.ApplicationSettingsConfigurable"
+                                 instance="com.eliashucke.projectsettingsimporter.settings.ApplicationSettingsConfigurable"
+                                 displayName="Project Settings Importer"/>
+        <applicationService
+                serviceImplementation="com.eliashucke.projectsettingsimporter.settings.ApplicationSettingsState"/>
+    </extensions>
+    <actions>
+        <action id="com.eliashucke.settingsimport.actions.CopyFilesAction"
+                class="com.eliashucke.projectsettingsimporter.actions.CopyFilesAction"
+                text="Import Project Settings" description="Import Project specific settings">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+    <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="com.eliashucke.projectsettingsimporter.project.ProjectStartup"/>
+    </extensions>
+</idea-plugin>
