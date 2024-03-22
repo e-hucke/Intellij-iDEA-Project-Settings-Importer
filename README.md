@@ -28,8 +28,8 @@ When importing/creating/opening a project that hasn't been opened yet with this 
 - Maybe rework importing Action On Save:
     - Rearrange Code and Run Code Clean Up are currently set using PropertiesComponent.getInstance(project).setValue(...)
     - This isn't possible for the other actions because they are saved directly as components in workspace.xml and I couldn't find an extension point to achieve this. The current (kinda hacky) workaround is serializing the xml and editing it manually.
-    - Not sure if this would get approved on the plugin marketplace
-
+    - IntelliJ will only load this xml into memory once the settings are opened. So these actions won't get applied before
+    - This probably won't get approved on the Plugin Marketplace
 ## License
 
 All of the code is dual-licensed under either:
